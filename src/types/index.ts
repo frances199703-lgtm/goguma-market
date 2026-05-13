@@ -9,17 +9,14 @@ export interface User {
 export interface Product {
   id: string;
   title: string;
-  description: string;
+  description: string | null;
   price: number;
-  status: "selling" | "reserved" | "sold";
-  category: string;
-  images: string[];
-  seller_id: string;
-  seller?: User;
-  location?: string;
-  view_count: number;
+  image_url: string | null;
+  seller_name: string;
+  category: Category;
+  status: "판매중" | "예약중" | "판매완료";
+  likes_count: number;
   created_at: string;
-  updated_at: string;
 }
 
 export interface ChatRoom {
