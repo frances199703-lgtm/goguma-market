@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense } from "react";
 import { createClient } from "@/lib/supabase/server";
 import { Product } from "@/types";
 import CategoryFilter from "./components/CategoryFilter";
@@ -67,10 +66,10 @@ export default async function Home({
         </div>
 
         {/* 카테고리 칩 */}
-        <div className="max-w-2xl mx-auto px-4 pb-2">
-          <Suspense>
-            <CategoryFilter />
-          </Suspense>
+        <div className="overflow-x-auto scrollbar-hide">
+          <div className="flex gap-2 px-4 pb-2 w-max">
+            <CategoryFilter selected={category ?? "전체"} />
+          </div>
         </div>
       </header>
 
